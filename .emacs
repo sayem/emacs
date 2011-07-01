@@ -36,9 +36,11 @@
 ;; -----------------------------------
 
 (add-to-list 'load-path "~/elisp/erc")
-(require 'erc) 
-(setq erc-autojoin-channels-alist
-      '(("#rubyonrails" "#ruby" "#python" "#javascript" "#github" "#startups")))
+(require 'erc)
+(require 'erc-match)
+(erc :server "irc.freenode.net" :port 6667 :nick "sayem")
+(setq erc-keywords '("sayem"))
+(setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#startups" "#github")))
 
 ;; -----------------------------------
 ;; ido
@@ -59,6 +61,11 @@
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle 'overlay)
+
+(add-to-list 'load-path "~/elisp/rhtml")
+(require 'rhtml-mode)
+(add-hook 'rhtml-mode-hook
+	  (lambda () (rinari-launch)))
 
 (add-to-list 'auto-mode-alist '("\\.rhtml" . html-mode))
 (add-hook 'ruby-mode-hook 'customize-ruby)
