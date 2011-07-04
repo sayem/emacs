@@ -38,7 +38,6 @@
 (add-to-list 'load-path "~/elisp/erc")
 (require 'erc)
 (require 'erc-match)
-(erc :server "irc.freenode.net" :port 6667 :nick "sayem")
 (setq erc-keywords '("sayem"))
 (setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#startups" "#github")))
 
