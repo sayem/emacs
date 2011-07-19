@@ -1,4 +1,5 @@
 (add-to-list 'load-path "~/.emacs.d/")
+(add-to-list 'load-path "~/elisp")
 (global-font-lock-mode t)
 (shell)
 (process-kill-without-query (get-process "shell"))
@@ -21,6 +22,18 @@
 (set-keyboard-coding-system 'utf-8)
 (setq default-buffer-file-coding-system 'utf-8)
 (setq x-select-request-type '(UTF8_STRING COMPOUND_TEXT TEXT STRING))
+
+;; -----------------------------------
+;; package.el
+;; -----------------------------------
+
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
+
+(require 'paredit)
+(require 'highlight-parentheses)
 
 ;; -----------------------------------
 ;; git
@@ -49,6 +62,32 @@
 (ido-mode t)
 (setq ido-enable-flex-matching t)
 
+;; ----------------------------------
+;; lisp
+;; ----------------------------------
+
+;; scheme
+;; -----------------
+
+(load-file "~/elisp/geiser/elisp/geiser.el")
+
+(defun scheme-custom-setup ()
+  (highlight-parentheses-mode)
+  (paredit-mode))
+
+(add-hook 'scheme-mode-hook 'scheme-custom-setup)
+(add-hook 'inferior-scheme-mode-hook 'scheme-custom-setup)
+
+;; elisp
+;; -----------------
+
+(defun elisp-custom-setup ()
+  (font-lock-add-keywords nil '(("(\\|)" . 'paren-face)))
+  (highlight-parentheses-mode)
+  (paredit-mode))
+
+(add-hook 'emacs-lisp-mode-hook 'elisp-custom-setup)
+
 ;; -----------------------------------
 ;; rails
 ;; -----------------------------------
@@ -69,9 +108,9 @@
 (add-to-list 'auto-mode-alist '("\\.rhtml" . html-mode))
 (add-hook 'ruby-mode-hook 'customize-ruby)
 
-;; -----------------------------------------------------------------------------
+;; -----------------------------------
 ;; javascript
-;; -----------------------------------------------------------------------------
+;; -----------------------------------
 
 (autoload 'espresso-mode "espresso")
 (add-to-list 'load-path "~/elisp/moz.el")
@@ -95,3 +134,14 @@
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
  '(default ((t (:inherit nil :stipple nil :background "black" :foreground "green" :inverse-video nil :box nil :strike-through nil :overline nil :underline nil :slant normal :weight normal :height 98 :width normal :foundry "unknown" :family "DejaVu Sans Mono")))))
+
+
+;;; This was installed by package-install.el.
+;;; This provides support for the package system and
+;;; interfacing with ELPA, the package archive.
+;;; Move this code earlier if you want to reference
+;;; packages in your .emacs.
+(when
+    (load
+     (expand-file-name "~/.emacs.d/elpa/package.el"))
+  (package-initialize))
