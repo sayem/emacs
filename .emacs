@@ -96,6 +96,9 @@
 (require 'rinari)
 (require 'haml-mode)
 
+(add-to-list 'load-path "~/elisp/rails-minor-mode")
+(require 'rails)
+
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle 'overlay)
