@@ -99,6 +99,16 @@
 (add-to-list 'load-path "~/elisp/rails-minor-mode")
 (require 'rails)
 
+(defun try-complete-abbrev (old)
+  (if (expand-abbrev) t nil))
+
+(setq hippie-expand-try-functions-list
+      '(try-complete-abbrev
+        try-complete-file-name
+        try-expand-dabbrev))
+
+(setq save-abbrevs 'silently)
+
 (require 'ruby-block)
 (ruby-block-mode t)
 (setq ruby-block-highlight-toggle 'overlay)
