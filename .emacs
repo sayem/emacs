@@ -73,7 +73,8 @@
 
 (load-file "~/elisp/geiser/elisp/geiser.el")
 
-(setq geiser-active-implementations '(guile))
+(setq geiser-racket-binary "/home/sayem/bin/racket")
+(setq geiser-active-implementations '(racket))
 
 (defun scheme-custom-setup ()
   (highlight-parentheses-mode)
