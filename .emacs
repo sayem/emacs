@@ -9,6 +9,8 @@
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 (require 'tramp)
 (setq tramp-default-method "ssh")
+(setq-default indent-tabs-mode nil)
+(setq-default tab-width 2)
 
 ;; -----------------------------------
 ;; unicode
@@ -70,6 +72,8 @@
 ;; -----------------
 
 (load-file "~/elisp/geiser/elisp/geiser.el")
+
+(setq geiser-active-implementations '(guile))
 
 (defun scheme-custom-setup ()
   (highlight-parentheses-mode)
