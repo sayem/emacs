@@ -73,7 +73,7 @@
 
 (load-file "~/elisp/geiser/elisp/geiser.el")
 
-(setq geiser-racket-binary "/home/sayem/bin/racket")
+(setq geiser-racket-binary "~/bin/racket")
 (setq geiser-active-implementations '(racket))
 
 (defun scheme-custom-setup ()
@@ -92,6 +92,33 @@
   (paredit-mode))
 
 (add-hook 'emacs-lisp-mode-hook 'elisp-custom-setup)
+
+;; ----------------------------------
+;; c, c++
+;; ----------------------------------
+
+(require 'cc-mode)
+(global-set-key [(f9)] 'compile)
+(setq compilation-window-height 8)
+(setq compilation-finish-function
+      (lambda (buf str)
+
+        (if (string-match "exited abnormally" str)
+
+            ;;there were errors
+            (message "compilation errors, press C-x ` to visit")
+
+          ;;no errors, make the compilation window go away in 0.5 seconds
+          (run-at-time 0.5 nil 'delete-windows-on buf)
+          (message "NO COMPILATION ERRORS!"))))
+
+(add-to-list 'auto-mode-alist '("\\.mm\\'" . objc-mode))
+(add-to-list 'magic-mode-alist
+                `(,(lambda ()
+                     (and (string= (file-name-extension buffer-file-name) "h")
+                          (re-search-forward "@\\<interface\\>" 
+					     magic-mode-regexp-match-limit t)))
+                  . objc-mode))
 
 ;; -----------------------------------
 ;; rails
