@@ -54,7 +54,7 @@
 (require 'erc)
 (require 'erc-match)
 (setq erc-keywords '("sayem"))
-(setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#startups" "#github")))
+(setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#rails-contrib" "#chromium" "#chromium-os")))
 
 ;; -----------------------------------
 ;; ido
@@ -168,7 +168,6 @@
   ;; If you edit it by hand, you could mess it up, so be careful.
   ;; Your init file should contain only one such instance.
   ;; If there is more than one, they won't work right.
- '(abbrev-mode t)
  '(confirm-kill-emacs nil)
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
