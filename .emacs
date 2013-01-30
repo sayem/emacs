@@ -54,7 +54,7 @@
 (require 'erc)
 (require 'erc-match)
 (setq erc-keywords '("sayem"))
-(setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#rails-contrib" "#chromium" "#chromium-os")))
+(setq erc-autojoin-channels-alist '((".*" "#rubyonrails" "#ruby" "#javascript" "#iosdev" "#iphonedev" "#iphone")))
 
 ;; -----------------------------------
 ;; ido
@@ -131,6 +131,8 @@
 (add-to-list 'load-path "~/elisp/rails-minor-mode")
 (require 'rails)
 
+
+
 (defun try-complete-abbrev (old)
   (if (expand-abbrev) t nil))
 
@@ -148,7 +150,7 @@
 (add-to-list 'load-path "~/elisp/rhtml")
 (require 'rhtml-mode)
 (add-hook 'rhtml-mode-hook
-	  (lambda () (rinari-launch)))
+(lambda () (rinari-launch)))
 
 (add-to-list 'auto-mode-alist '("\\.rhtml" . html-mode))
 (add-hook 'ruby-mode-hook 'customize-ruby)
@@ -160,6 +162,9 @@
 (autoload 'espresso-mode "espresso")
 (add-to-list 'load-path "~/elisp/moz.el")
 (autoload 'moz-minor-mode "moz" "Mozilla Minor and Inferior Mozilla Modes" t)
+
+(add-to-list 'load-path "~/elisp/coffee-mode.el")
+(require 'coffee-mode)
 
 ;; ------------------------------------------------------------------
 
