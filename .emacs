@@ -131,8 +131,6 @@
 (add-to-list 'load-path "~/elisp/rails-minor-mode")
 (require 'rails)
 
-
-
 (defun try-complete-abbrev (old)
   (if (expand-abbrev) t nil))
 
@@ -156,6 +154,27 @@
 (add-hook 'ruby-mode-hook 'customize-ruby)
 
 ;; -----------------------------------
+;; web dev
+;; -----------------------------------
+
+(add-to-list 'load-path "~/elisp/web-mode.el")
+(require 'web-mode)
+
+(add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.haml\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
+
+(add-to-list 'load-path "~/elisp/rainbow-mode.el")
+(require 'rainbow-mode)
+
+(defun all-css-modes() (css-mode) (rainbow-mode)) 
+(add-to-list 'auto-mode-alist '("\\.css$" . all-css-modes)) 
+
+;; -----------------------------------
 ;; javascript
 ;; -----------------------------------
 
@@ -169,10 +188,10 @@
 ;; ------------------------------------------------------------------
 
 (custom-set-variables
-  ;; custom-set-variables was added by Custom.
-  ;; If you edit it by hand, you could mess it up, so be careful.
-  ;; Your init file should contain only one such instance.
-  ;; If there is more than one, they won't work right.
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
  '(confirm-kill-emacs nil)
  '(global-auto-revert-mode t)
  '(global-auto-revert-non-file-buffers t)
