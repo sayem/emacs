@@ -173,6 +173,9 @@
 (add-to-list 'load-path "~/elisp/rainbow-mode.el")
 (require 'rainbow-mode)
 
+(add-to-list 'load-path "~/elisp/less-css-mode.el")
+(require 'less-css-mode)
+
 (defun all-css-modes() (css-mode) (rainbow-mode)) 
 (add-to-list 'auto-mode-alist '("\\.css$" . all-css-modes)) 
 
