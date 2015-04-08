@@ -168,7 +168,10 @@
 (add-to-list 'auto-mode-alist '("\\.haml\\'" . web-mode)) 
 (add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
 (add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.eco\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode)) 
+
 
 (add-to-list 'load-path "~/elisp/jade-mode")
 (require 'sws-mode)
