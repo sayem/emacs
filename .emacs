@@ -116,8 +116,8 @@
 (add-to-list 'magic-mode-alist
                 `(,(lambda ()
                      (and (string= (file-name-extension buffer-file-name) "h")
-                          (re-search-forward "@\\<interface\\>" 
-					     magic-mode-regexp-match-limit t)))
+                          (re-search-forward "@\\<interface\\>"
+               magic-mode-regexp-match-limit t)))
                   . objc-mode))
 
 ;; -----------------------------------
@@ -147,6 +147,7 @@
 
 (add-to-list 'load-path "~/elisp/rhtml")
 (require 'rhtml-mode)
+(require 'slim-mode)
 (add-hook 'rhtml-mode-hook
 (lambda () (rinari-launch)))
 
@@ -161,21 +162,21 @@
 (require 'web-mode)
 
 (add-to-list 'auto-mode-alist '("\\.html\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.haml\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.phtml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.tpl\\.php\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.inc\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.erb\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.haml\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.mustache\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.hbs\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
-(add-to-list 'auto-mode-alist '("\\.eco\\'" . web-mode)) 
-(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode)) 
+(add-to-list 'auto-mode-alist '("\\.eco\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
 
 
 (add-to-list 'load-path "~/elisp/jade-mode")
 (require 'sws-mode)
-(require 'jade-mode)    
+(require 'jade-mode)
 (add-to-list 'auto-mode-alist '("\\.styl$" . sws-mode))
 (add-to-list 'auto-mode-alist '("\\.jade$" . jade-mode))
 
@@ -185,8 +186,8 @@
 (add-to-list 'load-path "~/elisp/less-css-mode.el")
 (require 'less-css-mode)
 
-(defun all-css-modes() (css-mode) (rainbow-mode)) 
-(add-to-list 'auto-mode-alist '("\\.css$" . all-css-modes)) 
+(defun all-css-modes() (css-mode) (rainbow-mode))
+(add-to-list 'auto-mode-alist '("\\.css$" . all-css-modes))
 
 ;; -----------------------------------
 ;; javascript
