@@ -172,7 +172,8 @@
 (add-to-list 'auto-mode-alist '("\\.handlebars\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.eco\\'" . web-mode))
 (add-to-list 'auto-mode-alist '("\\.ejs\\'" . web-mode))
-
+(add-to-list 'auto-mode-alist '("\\.jsx\\'" . web-mode))
+(add-to-list 'auto-mode-alist '("\\.cjsx\\'" . web-mode))
 
 (add-to-list 'load-path "~/elisp/jade-mode")
 (require 'sws-mode)
@@ -199,6 +200,8 @@
 
 (add-to-list 'load-path "~/elisp/coffee-mode.el")
 (require 'coffee-mode)
+
+(add-to-list 'auto-mode-alist '("\\.cjsx\\'" . coffee-mode))
 
 (setq js-indent-level 2)
 
