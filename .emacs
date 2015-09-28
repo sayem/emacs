@@ -153,6 +153,7 @@
 
 (add-to-list 'auto-mode-alist '("\\.rhtml" . html-mode))
 (add-hook 'ruby-mode-hook 'customize-ruby)
+(setq ruby-insert-encoding-magic-comment nil)
 
 ;; -----------------------------------
 ;; web dev
